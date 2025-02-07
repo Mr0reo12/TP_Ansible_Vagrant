@@ -1,0 +1,7 @@
+---
+- name: Tester la réutilisation des rôles Apache et MariaDB
+  hosts: all
+  become: yes
+  roles:
+    - apache
+    - mariadb

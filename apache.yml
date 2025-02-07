@@ -1,0 +1,20 @@
+---
+- name: Installer Apache
+  hosts: all
+  become: yes       
+  tasks:
+    - name: Mettre à jour la liste des paquets
+      apt:
+        update_cache: yes
+
+    - name: Installer Apache
+      apt:
+        name: apache2
+        state: present
+
+    - name: Démarrer et activer Apache
+      service:
+        name: apache2
+        state: started
+        enabled: yes
+

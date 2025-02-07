@@ -1,0 +1,13 @@
+---
+- name: Déployer Apache et MariaDB avec import_role
+  hosts: all
+  become: yes
+  tasks:
+    - name: Importer le rôle Apache
+      import_role:
+        name: apache
+
+    - name: Importer le rôle MariaDB
+      import_role:
+        name: mariadb
+

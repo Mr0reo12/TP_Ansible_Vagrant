@@ -1,0 +1,19 @@
+---
+- name: Installer MariaDB
+  hosts: all
+  become: yes
+  tasks:
+    - name: Mettre à jour la liste des paquets
+      apt:
+        update_cache: yes
+
+    - name: Installer MariaDB
+      apt:
+        name: mariadb-server
+        state: present
+
+    - name: Démarrer et activer MariaDB
+      service:
+        name: mariadb
+        state: started
+        enabled: yes
